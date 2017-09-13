@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="utf-8" />
+      <title>lecture_note</title>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    extensions: [],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js","noErrors.js","noUndefined.js"]
+    },
+    showMathMenu: false
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js">
+</script>
+      <style>.markdown-preview:not([data-use-github-style]) { padding: 2em; font-size: 1.2em; color: rgb(56, 58, 66); overflow: auto; background-color: rgb(250, 250, 250); }
+.markdown-preview:not([data-use-github-style]) > :first-child { margin-top: 0px; }
+.markdown-preview:not([data-use-github-style]) h1, .markdown-preview:not([data-use-github-style]) h2, .markdown-preview:not([data-use-github-style]) h3, .markdown-preview:not([data-use-github-style]) h4, .markdown-preview:not([data-use-github-style]) h5, .markdown-preview:not([data-use-github-style]) h6 { line-height: 1.2; margin-top: 1.5em; margin-bottom: 0.5em; color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) h1 { font-size: 2.4em; font-weight: 300; }
+.markdown-preview:not([data-use-github-style]) h2 { font-size: 1.8em; font-weight: 400; }
+.markdown-preview:not([data-use-github-style]) h3 { font-size: 1.5em; font-weight: 500; }
+.markdown-preview:not([data-use-github-style]) h4 { font-size: 1.2em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h5 { font-size: 1.1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) h6 { font-size: 1em; font-weight: 600; }
+.markdown-preview:not([data-use-github-style]) strong { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) del { color: rgb(94, 97, 110); }
+.markdown-preview:not([data-use-github-style]) a, .markdown-preview:not([data-use-github-style]) a code { color: rgb(82, 111, 255); }
+.markdown-preview:not([data-use-github-style]) img { max-width: 100%; }
+.markdown-preview:not([data-use-github-style]) > p { margin-top: 0px; margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) > ul, .markdown-preview:not([data-use-github-style]) > ol { margin-bottom: 1.5em; }
+.markdown-preview:not([data-use-github-style]) blockquote { margin: 1.5em 0px; font-size: inherit; color: rgb(94, 97, 110); border-color: rgb(209, 209, 210); border-width: 4px; }
+.markdown-preview:not([data-use-github-style]) hr { margin: 3em 0px; border-top: 2px dashed rgb(209, 209, 210); background: none; }
+.markdown-preview:not([data-use-github-style]) table { margin: 1.5em 0px; }
+.markdown-preview:not([data-use-github-style]) th { color: rgb(0, 0, 0); }
+.markdown-preview:not([data-use-github-style]) th, .markdown-preview:not([data-use-github-style]) td { padding: 0.66em 1em; border: 1px solid rgb(209, 209, 210); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) code { color: rgb(0, 0, 0); background-color: rgb(234, 234, 235); }
+.markdown-preview:not([data-use-github-style]) pre, .markdown-preview:not([data-use-github-style]) pre.editor-colors { margin: 1.5em 0px; padding: 1em; font-size: 0.92em; border-radius: 3px; background-color: rgb(240, 240, 240); }
+.markdown-preview:not([data-use-github-style]) kbd { color: rgb(0, 0, 0); border-width: 1px 1px 2px; border-style: solid; border-color: rgb(209, 209, 210) rgb(209, 209, 210) rgb(193, 193, 194); background-color: rgb(234, 234, 235); }
+.markdown-preview[data-use-github-style] { font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif; line-height: 1.6; word-wrap: break-word; padding: 30px; font-size: 16px; color: rgb(51, 51, 51); overflow: scroll; background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] > :first-child { margin-top: 0px !important; }
+.markdown-preview[data-use-github-style] > :last-child { margin-bottom: 0px !important; }
+.markdown-preview[data-use-github-style] a:not([href]) { color: inherit; text-decoration: none; }
+.markdown-preview[data-use-github-style] .absent { color: rgb(204, 0, 0); }
+.markdown-preview[data-use-github-style] .anchor { position: absolute; top: 0px; left: 0px; display: block; padding-right: 6px; padding-left: 30px; margin-left: -30px; }
+.markdown-preview[data-use-github-style] .anchor:focus { outline: none; }
+.markdown-preview[data-use-github-style] h1, .markdown-preview[data-use-github-style] h2, .markdown-preview[data-use-github-style] h3, .markdown-preview[data-use-github-style] h4, .markdown-preview[data-use-github-style] h5, .markdown-preview[data-use-github-style] h6 { position: relative; margin-top: 1em; margin-bottom: 16px; font-weight: bold; line-height: 1.4; }
+.markdown-preview[data-use-github-style] h1 .octicon-link, .markdown-preview[data-use-github-style] h2 .octicon-link, .markdown-preview[data-use-github-style] h3 .octicon-link, .markdown-preview[data-use-github-style] h4 .octicon-link, .markdown-preview[data-use-github-style] h5 .octicon-link, .markdown-preview[data-use-github-style] h6 .octicon-link { display: none; color: rgb(0, 0, 0); vertical-align: middle; }
+.markdown-preview[data-use-github-style] h1:hover .anchor, .markdown-preview[data-use-github-style] h2:hover .anchor, .markdown-preview[data-use-github-style] h3:hover .anchor, .markdown-preview[data-use-github-style] h4:hover .anchor, .markdown-preview[data-use-github-style] h5:hover .anchor, .markdown-preview[data-use-github-style] h6:hover .anchor { padding-left: 8px; margin-left: -30px; text-decoration: none; }
+.markdown-preview[data-use-github-style] h1:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h2:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h3:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h4:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h5:hover .anchor .octicon-link, .markdown-preview[data-use-github-style] h6:hover .anchor .octicon-link { display: inline-block; }
+.markdown-preview[data-use-github-style] h1 tt, .markdown-preview[data-use-github-style] h2 tt, .markdown-preview[data-use-github-style] h3 tt, .markdown-preview[data-use-github-style] h4 tt, .markdown-preview[data-use-github-style] h5 tt, .markdown-preview[data-use-github-style] h6 tt, .markdown-preview[data-use-github-style] h1 code, .markdown-preview[data-use-github-style] h2 code, .markdown-preview[data-use-github-style] h3 code, .markdown-preview[data-use-github-style] h4 code, .markdown-preview[data-use-github-style] h5 code, .markdown-preview[data-use-github-style] h6 code { font-size: inherit; }
+.markdown-preview[data-use-github-style] h1 { padding-bottom: 0.3em; font-size: 2.25em; line-height: 1.2; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h1 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h2 { padding-bottom: 0.3em; font-size: 1.75em; line-height: 1.225; border-bottom: 1px solid rgb(238, 238, 238); }
+.markdown-preview[data-use-github-style] h2 .anchor { line-height: 1; }
+.markdown-preview[data-use-github-style] h3 { font-size: 1.5em; line-height: 1.43; }
+.markdown-preview[data-use-github-style] h3 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h4 { font-size: 1.25em; }
+.markdown-preview[data-use-github-style] h4 .anchor { line-height: 1.2; }
+.markdown-preview[data-use-github-style] h5 { font-size: 1em; }
+.markdown-preview[data-use-github-style] h5 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] h6 { font-size: 1em; color: rgb(119, 119, 119); }
+.markdown-preview[data-use-github-style] h6 .anchor { line-height: 1.1; }
+.markdown-preview[data-use-github-style] p, .markdown-preview[data-use-github-style] blockquote, .markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol, .markdown-preview[data-use-github-style] dl, .markdown-preview[data-use-github-style] table, .markdown-preview[data-use-github-style] pre { margin-top: 0px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] hr { height: 4px; padding: 0px; margin: 16px 0px; border: 0px none; background-color: rgb(231, 231, 231); }
+.markdown-preview[data-use-github-style] ul, .markdown-preview[data-use-github-style] ol { padding-left: 2em; }
+.markdown-preview[data-use-github-style] ul.no-list, .markdown-preview[data-use-github-style] ol.no-list { padding: 0px; list-style-type: none; }
+.markdown-preview[data-use-github-style] ul ul, .markdown-preview[data-use-github-style] ul ol, .markdown-preview[data-use-github-style] ol ol, .markdown-preview[data-use-github-style] ol ul { margin-top: 0px; margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] li > p { margin-top: 16px; }
+.markdown-preview[data-use-github-style] dl { padding: 0px; }
+.markdown-preview[data-use-github-style] dl dt { padding: 0px; margin-top: 16px; font-size: 1em; font-style: italic; font-weight: bold; }
+.markdown-preview[data-use-github-style] dl dd { padding: 0px 16px; margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] blockquote { padding: 0px 15px; color: rgb(119, 119, 119); border-left: 4px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] blockquote > :first-child { margin-top: 0px; }
+.markdown-preview[data-use-github-style] blockquote > :last-child { margin-bottom: 0px; }
+.markdown-preview[data-use-github-style] table { display: block; width: 100%; overflow: auto; word-break: keep-all; }
+.markdown-preview[data-use-github-style] table th { font-weight: bold; }
+.markdown-preview[data-use-github-style] table th, .markdown-preview[data-use-github-style] table td { padding: 6px 13px; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] table tr { border-top: 1px solid rgb(204, 204, 204); background-color: rgb(255, 255, 255); }
+.markdown-preview[data-use-github-style] table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
+.markdown-preview[data-use-github-style] img { max-width: 100%; box-sizing: border-box; }
+.markdown-preview[data-use-github-style] .emoji { max-width: none; }
+.markdown-preview[data-use-github-style] span.frame { display: block; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.frame > span { display: block; float: left; width: auto; padding: 7px; margin: 13px 0px 0px; overflow: hidden; border: 1px solid rgb(221, 221, 221); }
+.markdown-preview[data-use-github-style] span.frame span img { display: block; float: left; }
+.markdown-preview[data-use-github-style] span.frame span span { display: block; padding: 5px 0px 0px; clear: both; color: rgb(51, 51, 51); }
+.markdown-preview[data-use-github-style] span.align-center { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-center > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-center span img { margin: 0px auto; text-align: center; }
+.markdown-preview[data-use-github-style] span.align-right { display: block; overflow: hidden; clear: both; }
+.markdown-preview[data-use-github-style] span.align-right > span { display: block; margin: 13px 0px 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] span.align-right span img { margin: 0px; text-align: right; }
+.markdown-preview[data-use-github-style] span.float-left { display: block; float: left; margin-right: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-left span { margin: 13px 0px 0px; }
+.markdown-preview[data-use-github-style] span.float-right { display: block; float: right; margin-left: 13px; overflow: hidden; }
+.markdown-preview[data-use-github-style] span.float-right > span { display: block; margin: 13px auto 0px; overflow: hidden; text-align: right; }
+.markdown-preview[data-use-github-style] code, .markdown-preview[data-use-github-style] tt { padding: 0.2em 0px; margin: 0px; font-size: 85%; border-radius: 3px; background-color: rgba(0, 0, 0, 0.0392157); }
+.markdown-preview[data-use-github-style] code::before, .markdown-preview[data-use-github-style] tt::before, .markdown-preview[data-use-github-style] code::after, .markdown-preview[data-use-github-style] tt::after { letter-spacing: -0.2em; content: " "; }
+.markdown-preview[data-use-github-style] code br, .markdown-preview[data-use-github-style] tt br { display: none; }
+.markdown-preview[data-use-github-style] del code { text-decoration: inherit; }
+.markdown-preview[data-use-github-style] pre > code { padding: 0px; margin: 0px; font-size: 100%; word-break: normal; white-space: pre; border: 0px; background: transparent; }
+.markdown-preview[data-use-github-style] .highlight { margin-bottom: 16px; }
+.markdown-preview[data-use-github-style] .highlight pre, .markdown-preview[data-use-github-style] pre { padding: 16px; overflow: auto; font-size: 85%; line-height: 1.45; border-radius: 3px; background-color: rgb(247, 247, 247); }
+.markdown-preview[data-use-github-style] .highlight pre { margin-bottom: 0px; word-break: normal; }
+.markdown-preview[data-use-github-style] pre { word-wrap: normal; }
+.markdown-preview[data-use-github-style] pre code, .markdown-preview[data-use-github-style] pre tt { display: inline; max-width: initial; padding: 0px; margin: 0px; overflow: initial; line-height: inherit; word-wrap: normal; border: 0px; background-color: transparent; }
+.markdown-preview[data-use-github-style] pre code::before, .markdown-preview[data-use-github-style] pre tt::before, .markdown-preview[data-use-github-style] pre code::after, .markdown-preview[data-use-github-style] pre tt::after { content: normal; }
+.markdown-preview[data-use-github-style] kbd { display: inline-block; padding: 3px 5px; font-size: 11px; line-height: 10px; color: rgb(85, 85, 85); vertical-align: middle; border-width: 1px; border-style: solid; border-color: rgb(204, 204, 204) rgb(204, 204, 204) rgb(187, 187, 187); border-radius: 3px; box-shadow: rgb(187, 187, 187) 0px -1px 0px inset; background-color: rgb(252, 252, 252); }
+.markdown-preview[data-use-github-style] a { color: rgb(51, 122, 183); }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] code { color: inherit; }
+.markdown-preview[data-use-github-style] pre, .markdown-preview[data-use-github-style] pre.editor-colors { padding: 0.8em 1em; margin-bottom: 1em; font-size: 0.85em; border-radius: 4px; overflow: auto; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors.editor .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors.editor .horizontal-scrollbar { visibility: hidden; }
+.scrollbars-visible-always .markdown-preview pre.editor-colors:hover.editor .vertical-scrollbar, .scrollbars-visible-always .markdown-preview pre.editor-colors:hover.editor .horizontal-scrollbar { visibility: visible; }
+.markdown-preview del { text-decoration: none; position: relative; }
+.markdown-preview del::after { border-bottom: 1px solid black; content: ""; left: 0px; position: absolute; right: 0px; top: 50%; }
+.markdown-preview .flash { animation: flash 1s ease-out 1; outline: rgba(255, 0, 0, 0) solid 1px; }
+.markdown-preview .flash:not(li) { display: block; }
+.bracket-matcher .region {
+  border-bottom: 1px dotted lime;
+  position: absolute;
+}
+
+.spell-check-misspelling .region {
+  border-bottom: 2px dotted rgba(255, 51, 51, 0.75);
+}
+.spell-check-corrections {
+  width: 25em !important;
+}
+
+pre.editor-colors {
+  background-color: #fafafa;
+  color: #383a42;
+}
+pre.editor-colors .line.cursor-line {
+  background-color: rgba(56, 58, 66, 0.05);
+}
+pre.editor-colors .invisible {
+  color: #383a42;
+}
+pre.editor-colors .cursor {
+  border-left: 2px solid #526fff;
+}
+pre.editor-colors .selection .region {
+  background-color: #e5e5e6;
+}
+pre.editor-colors .bracket-matcher .region {
+  border-bottom: 1px solid #526fff;
+  box-sizing: border-box;
+}
+pre.editor-colors .invisible-character {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .indent-guide {
+  color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .wrap-guide {
+  background-color: rgba(56, 58, 66, 0.2);
+}
+pre.editor-colors .find-result .region.region.region,
+pre.editor-colors .current-result .region.region.region {
+  border-radius: 2px;
+  background-color: rgba(82, 111, 255, 0.2);
+  transition: border-color 0.4s;
+}
+pre.editor-colors .find-result .region.region.region {
+  border: 2px solid transparent;
+}
+pre.editor-colors .current-result .region.region.region {
+  border: 2px solid #526fff;
+  transition-duration: .1s;
+}
+pre.editor-colors .gutter .line-number {
+  color: #9d9d9f;
+  -webkit-font-smoothing: antialiased;
+}
+pre.editor-colors .gutter .line-number.cursor-line {
+  color: #383a42;
+  background-color: #f2f2f2;
+}
+pre.editor-colors .gutter .line-number.cursor-line-no-selection {
+  background-color: transparent;
+}
+pre.editor-colors .gutter .line-number .icon-right {
+  color: #383a42;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed.git-line-removed::before {
+  bottom: -3px;
+}
+pre.editor-colors .gutter:not(.git-diff-icon) .line-number.git-line-removed::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 25px;
+  border-bottom: 1px dotted rgba(255, 20, 20, 0.5);
+  pointer-events: none;
+}
+pre.editor-colors .gutter .line-number.folded,
+pre.editor-colors .gutter .line-number:after,
+pre.editor-colors .fold-marker:after {
+  color: #383a42;
+}
+.syntax--comment {
+  color: #a0a1a7;
+  font-style: italic;
+}
+.syntax--comment .syntax--markup.syntax--link {
+  color: #a0a1a7;
+}
+.syntax--entity.syntax--name.syntax--type {
+  color: #c18401;
+}
+.syntax--entity.syntax--other.syntax--inherited-class {
+  color: #50a14f;
+}
+.syntax--keyword {
+  color: #a626a4;
+}
+.syntax--keyword.syntax--control {
+  color: #a626a4;
+}
+.syntax--keyword.syntax--operator {
+  color: #383a42;
+}
+.syntax--keyword.syntax--other.syntax--special-method {
+  color: #4078f2;
+}
+.syntax--keyword.syntax--other.syntax--unit {
+  color: #986801;
+}
+.syntax--storage {
+  color: #a626a4;
+}
+.syntax--storage.syntax--type.syntax--annotation,
+.syntax--storage.syntax--type.syntax--primitive {
+  color: #a626a4;
+}
+.syntax--storage.syntax--modifier.syntax--package,
+.syntax--storage.syntax--modifier.syntax--import {
+  color: #383a42;
+}
+.syntax--constant {
+  color: #986801;
+}
+.syntax--constant.syntax--variable {
+  color: #986801;
+}
+.syntax--constant.syntax--character.syntax--escape {
+  color: #0184bc;
+}
+.syntax--constant.syntax--numeric {
+  color: #986801;
+}
+.syntax--constant.syntax--other.syntax--color {
+  color: #0184bc;
+}
+.syntax--constant.syntax--other.syntax--symbol {
+  color: #0184bc;
+}
+.syntax--variable {
+  color: #e45649;
+}
+.syntax--variable.syntax--interpolation {
+  color: #ca1243;
+}
+.syntax--variable.syntax--parameter {
+  color: #383a42;
+}
+.syntax--string {
+  color: #50a14f;
+}
+.syntax--string.syntax--regexp {
+  color: #0184bc;
+}
+.syntax--string.syntax--regexp .syntax--source.syntax--ruby.syntax--embedded {
+  color: #c18401;
+}
+.syntax--string.syntax--other.syntax--link {
+  color: #e45649;
+}
+.syntax--punctuation.syntax--definition.syntax--comment {
+  color: #a0a1a7;
+}
+.syntax--punctuation.syntax--definition.syntax--method-parameters,
+.syntax--punctuation.syntax--definition.syntax--function-parameters,
+.syntax--punctuation.syntax--definition.syntax--parameters,
+.syntax--punctuation.syntax--definition.syntax--separator,
+.syntax--punctuation.syntax--definition.syntax--seperator,
+.syntax--punctuation.syntax--definition.syntax--array {
+  color: #383a42;
+}
+.syntax--punctuation.syntax--definition.syntax--heading,
+.syntax--punctuation.syntax--definition.syntax--identity {
+  color: #4078f2;
+}
+.syntax--punctuation.syntax--definition.syntax--bold {
+  color: #c18401;
+  font-weight: bold;
+}
+.syntax--punctuation.syntax--definition.syntax--italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.syntax--punctuation.syntax--section.syntax--embedded {
+  color: #ca1243;
+}
+.syntax--punctuation.syntax--section.syntax--method,
+.syntax--punctuation.syntax--section.syntax--class,
+.syntax--punctuation.syntax--section.syntax--inner-class {
+  color: #383a42;
+}
+.syntax--support.syntax--class {
+  color: #c18401;
+}
+.syntax--support.syntax--type {
+  color: #0184bc;
+}
+.syntax--support.syntax--function {
+  color: #0184bc;
+}
+.syntax--support.syntax--function.syntax--any-method {
+  color: #4078f2;
+}
+.syntax--entity.syntax--name.syntax--function {
+  color: #4078f2;
+}
+.syntax--entity.syntax--name.syntax--class,
+.syntax--entity.syntax--name.syntax--type.syntax--class {
+  color: #c18401;
+}
+.syntax--entity.syntax--name.syntax--section {
+  color: #4078f2;
+}
+.syntax--entity.syntax--name.syntax--tag {
+  color: #e45649;
+}
+.syntax--entity.syntax--other.syntax--attribute-name {
+  color: #986801;
+}
+.syntax--entity.syntax--other.syntax--attribute-name.syntax--id {
+  color: #4078f2;
+}
+.syntax--meta.syntax--class {
+  color: #c18401;
+}
+.syntax--meta.syntax--class.syntax--body {
+  color: #383a42;
+}
+.syntax--meta.syntax--method-call,
+.syntax--meta.syntax--method {
+  color: #383a42;
+}
+.syntax--meta.syntax--definition.syntax--variable {
+  color: #e45649;
+}
+.syntax--meta.syntax--link {
+  color: #986801;
+}
+.syntax--meta.syntax--require {
+  color: #4078f2;
+}
+.syntax--meta.syntax--selector {
+  color: #a626a4;
+}
+.syntax--meta.syntax--separator {
+  background-color: #373b41;
+  color: #383a42;
+}
+.syntax--meta.syntax--tag {
+  color: #383a42;
+}
+.syntax--underline {
+  text-decoration: underline;
+}
+.syntax--none {
+  color: #383a42;
+}
+.syntax--invalid.syntax--deprecated {
+  color: #000000 !important;
+  background-color: #f2a60d !important;
+}
+.syntax--invalid.syntax--illegal {
+  color: #ffffff !important;
+  background-color: #ff1414 !important;
+}
+.syntax--markup.syntax--bold {
+  color: #986801;
+  font-weight: bold;
+}
+.syntax--markup.syntax--changed {
+  color: #a626a4;
+}
+.syntax--markup.syntax--deleted {
+  color: #e45649;
+}
+.syntax--markup.syntax--italic {
+  color: #a626a4;
+  font-style: italic;
+}
+.syntax--markup.syntax--heading {
+  color: #e45649;
+}
+.syntax--markup.syntax--heading .syntax--punctuation.syntax--definition.syntax--heading {
+  color: #4078f2;
+}
+.syntax--markup.syntax--link {
+  color: #0184bc;
+}
+.syntax--markup.syntax--inserted {
+  color: #50a14f;
+}
+.syntax--markup.syntax--quote {
+  color: #986801;
+}
+.syntax--markup.syntax--raw {
+  color: #50a14f;
+}
+.syntax--source.syntax--c .syntax--keyword.syntax--operator {
+  color: #a626a4;
+}
+.syntax--source.syntax--cpp .syntax--keyword.syntax--operator {
+  color: #a626a4;
+}
+.syntax--source.syntax--cs .syntax--keyword.syntax--operator {
+  color: #a626a4;
+}
+.syntax--source.syntax--css .syntax--property-name,
+.syntax--source.syntax--css .syntax--property-value {
+  color: #696c77;
+}
+.syntax--source.syntax--css .syntax--property-name.syntax--support,
+.syntax--source.syntax--css .syntax--property-value.syntax--support {
+  color: #383a42;
+}
+.syntax--source.syntax--gfm .syntax--markup {
+  -webkit-font-smoothing: auto;
+}
+.syntax--source.syntax--gfm .syntax--link .syntax--entity {
+  color: #4078f2;
+}
+.syntax--source.syntax--go .syntax--storage.syntax--type.syntax--string {
+  color: #a626a4;
+}
+.syntax--source.syntax--ini .syntax--keyword.syntax--other.syntax--definition.syntax--ini {
+  color: #e45649;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--modifier.syntax--import {
+  color: #c18401;
+}
+.syntax--source.syntax--java .syntax--storage.syntax--type {
+  color: #c18401;
+}
+.syntax--source.syntax--java .syntax--keyword.syntax--operator.syntax--instanceof {
+  color: #a626a4;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair {
+  color: #e45649;
+}
+.syntax--source.syntax--java-properties .syntax--meta.syntax--key-pair > .syntax--punctuation {
+  color: #383a42;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator {
+  color: #0184bc;
+}
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--delete,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--in,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--of,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--instanceof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--new,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--typeof,
+.syntax--source.syntax--js .syntax--keyword.syntax--operator.syntax--void {
+  color: #a626a4;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json {
+  color: #e45649;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation.syntax--string {
+  color: #e45649;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--value.syntax--json > .syntax--string.syntax--quoted.syntax--json > .syntax--punctuation {
+  color: #50a14f;
+}
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--dictionary.syntax--json > .syntax--constant.syntax--language.syntax--json,
+.syntax--source.syntax--json .syntax--meta.syntax--structure.syntax--array.syntax--json > .syntax--constant.syntax--language.syntax--json {
+  color: #0184bc;
+}
+.syntax--source.syntax--ruby .syntax--constant.syntax--other.syntax--symbol > .syntax--punctuation {
+  color: inherit;
+}
+.syntax--source.syntax--python .syntax--keyword.syntax--operator.syntax--logical.syntax--python {
+  color: #a626a4;
+}
+.syntax--source.syntax--python .syntax--variable.syntax--parameter {
+  color: #986801;
+}
+</style>
+  </head>
+  <body class='markdown-preview'><h1>OpenFOAM for ship hydrodynamics 講習会</h1>
+<div style="text-align: right;">
+2017.09.16 yotakagi77
+</div>
+<h2>はじめに</h2>
+<p>この資料は2017年9月16日に行われた&quot;OpenFOAM for ship dydrodynamics講習会&quot;用に書かれたものである．内容は船舶CFDを始めようとする方，または流体解析の経験があって船舶CFDに興味がある方を対象とした内容となっている．流体解析そのものはオープンソースソフトウェアのOpenFOAMを用いて行うが，OpenFOAMの基本的な使い方(チュートリアルケースの実行の仕方，ケースファイルの構成，ParaViewによる可視化，etc)は習得していることを前提する．OpenFOAMをまだ一度も使ったことがない方は，本資料を用いて演習を行う前に，公式のOpenFOAMユーザガイドや『OpenFOAMによる熱移動と流れの数値解析』を読んで自習されることをおすすめする．</p>
+<h2>水槽試験</h2>
+<p>船型設計においてCFDは欠かせないものとなっているが，最終的には水槽試験を行うのが通常であり，CFD解析も各種水槽試験に準拠して行うのが普通である．そのため，CFDだけを行う・興味がある場合でも，各種水槽試験に関する基礎的な知識を持っていることが重要である．実海域での実船試験は限定されるため，通常は模型船を用いて各機関が保有する水槽で試験を行う．よく行われる水槽試験としては以下のものがあげられる．</p>
+<ul>
+<li>抵抗試験 (Resistance)</li>
+<li>自航試験 (Propulsion)</li>
+<li>プロペラ単独性能試験 (Propeller Open water Test, POT)</li>
+<li>キャビテーション試験 (Cavitation)</li>
+<li>自由横揺れ試験 (Free Rolling)</li>
+<li>PMM試験 (Planer Motion Mechanism)</li>
+</ul>
+<h3>ベンチマークテスト</h3>
+<p>CFDや計測精度の検証のために，各種のベンチマークテストが提案されており，試験された模型船形状，プロペラ形状と共に実施した水槽での試験結果が公開されている．CFDのベンチマークによく利用されている模型船試験としては以下のものなどがあげられる．</p>
+<ul>
+<li>DTC (Duisburg Test Case)</li>
+<li>KCS (KRISO Container Ship)</li>
+<li>KVLCC2</li>
+<li>DTMB 5415</li>
+<li>Wigley</li>
+</ul>
+<h2>OpenFOAMでの船舶CFDに対する機能性向上</h2>
+<p>OpenFOAMの標準チュートリアルでは，バージョン2.2でWigley，バージョン2.3以降でDTCが含まれている．OpenFOAMを用いて船舶CFDを行うニーズは従来から高く，2008年に開催された3rd OpenFOAM WorkshopでShip HydrodynamicsのSIG(Special Interest Group)ができている．しかしながら，OpenFOAMの初期のVOFソルバーでは船体付近での造波予測精度があまりよくなかったことと，計算時間がかかることを理由に，船舶CFDに特化した/強みを持つ商用ソルバーに比較して利用が拡大していなかった．最近ではVOFソルバーの精度改善，及び局所時間ステップ(Local Time Stepping, LTS)導入による計算時間の短縮によって，OpenFOAMで船舶CFDを行う事例が多数報告されている．さらに最近のOpenFOAMでは流入造波機能や重合格子(overset grid)が導入されており，耐航性や複雑船尾形状などの応用的船舶CFDにもOpenFOAMが使用されることが見込まれる．</p>
+<h2>DTCHullチュートリアル</h2>
+<h3>チュートリアルケースのコピー，構成確認</h3>
+<p>今回のハンズオン講習では，バージョン2.3以降に含まれているDTCHullチュートリアルを取り上げる．まず，OpenFOAMを実行できる端末を起動し，該当するチュートリアルケースを探して自分のrunディレクトリにコピーする．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;tut</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;find&nbsp;</span><span class="support function builtin shell"><span>.</span></span><span>&nbsp;-name&nbsp;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&#39;</span></span><span>DTCHull*</span><span class="punctuation definition string end shell"><span>&#39;</span></span></span></span></div><div class="line"><span class="source shell"><span>$&nbsp;mkdir&nbsp;-p&nbsp;</span><span class="variable other normal shell"><span class="punctuation definition variable shell"><span>$</span></span><span>FOAM_RUN</span></span></span></div><div class="line"><span class="source shell"><span>$&nbsp;run</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;cp&nbsp;-r&nbsp;</span><span class="variable other normal shell"><span class="punctuation definition variable shell"><span>$</span></span><span>FOAM_TUTORIALS</span></span><span>/multiphase/interDyMFoam/ras/DTCHull&nbsp;./</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;</span><span class="support function builtin shell"><span>cd</span></span><span>&nbsp;DTCHull</span></span></div></pre>
+<p>ケースディレクトリの構成を確認してみる．GUIの場合は各種ファイラー，CUIの場合は<code>tree</code>コマンドを使う(初期状態ではインストールされていないことが多いので注意)．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;tree</span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>.</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>├──&nbsp;0.orig</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;U</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;alpha.water</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;k</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;nut</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;omega</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;p_rgh</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;└──&nbsp;pointDisplacement</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>├──&nbsp;Allclean</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>├──&nbsp;Allrun</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>├──&nbsp;README</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>├──&nbsp;constant</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;dynamicMeshDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;dynamicMeshDict.sixDoF</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;g</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;hRef</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;transportProperties</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;├──&nbsp;triSurface</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;│  &nbsp;└──&nbsp;README</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>│  &nbsp;└──&nbsp;turbulenceProperties</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>└──&nbsp;system</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>├──&nbsp;blockMeshDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;controlDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;decomposeParDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;fvSchemes</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;fvSolution</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;meshQualityDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;refineMeshDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;setFieldsDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;snappyHexMeshDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;surfaceFeatureExtractDict</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;topoSetDict.1</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;topoSetDict.2</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;topoSetDict.3</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;topoSetDict.4</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;├──&nbsp;topoSetDict.5</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;└──&nbsp;topoSetDict.6</span></span></span></div></pre>
+<p>まず<code>README</code>が置いてあることに気づくので，中身を確認する．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;cat&nbsp;README</span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Reference:</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Duisburg&nbsp;Test&nbsp;Case&nbsp;(DTC)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>el&nbsp;Moctar,&nbsp;O.,&nbsp;Shigunov,&nbsp;V.,&nbsp;Zorn,&nbsp;T.,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Duisburg&nbsp;Test&nbsp;Case:&nbsp;Post-Panamax&nbsp;Container&nbsp;Ship&nbsp;for&nbsp;Benchmarking,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Journal&nbsp;of&nbsp;Ship&nbsp;Technology&nbsp;Research,</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Vol.59,&nbsp;No.3,&nbsp;pp.&nbsp;50-65,&nbsp;2012</span></span></span></div></pre>
+<p>参考文献が一つ書かれているだけであるが，DTCHullチュートリアルはこの論文をベースにしていることを示している．該当論文はインターネットからPDFとしてダウンロードできるので，船舶CFDに本格的に取り組みたい方は中身を精読されたい．論文の構成(章立て)は以下のようになっている．</p>
+<ol>
+<li>
+<p>Introduction</p>
+</li>
+<li>
+<p>Geometry and Main Particulars</p>
+</li>
+<li>
+<p>Resistance and Propulsion Tests</p>
+<p>3.1 Loading Conditions</p>
+<p>3.2 Open-Water Propeller Tests</p>
+<p>3.3 Resistance Tests</p>
+<p>3.4 Propulsion Tests</p>
+</li>
+<li>
+<p>Roll Damping Tests</p>
+<p>4.1 Loading Conditions</p>
+<p>4.2 Roll Damping Measurements according to Blume (1979)</p>
+<p>4.3 Roll Decay Tests</p>
+</li>
+<li>
+<p>Example of Numerical Results</p>
+<p>5.1 Resistance</p>
+<p>5.2 Roll Decay</p>
+</li>
+<li>
+<p>References</p>
+</li>
+</ol>
+<p>この論文の水槽試験としては，プロペラ単独性能試験(Open-Water Propeller Tests)，抵抗試験(Resistance Tests)，自航試験(Propulsion Tests)，揺れ減衰試験(Roll Damping Tests)を実施しており，RANSE-CFDコードによる計算結果と実験結果の比較を行っている．今回のハンズオン講習では，船形状・主要目を確認した後に抵抗試験のみに注目して進める．</p>
+<h3>船形状の確認</h3>
+<p>DTCベンチマークはInstitute of Ship Technology, Ocean Engineering and Transport Systems (ISMT)が試験を行っているが，船のCADデータは<a href="http://www.uni-due.de/ISMT/">ISMTのウェブサイト</a>に行き，“PUBLICATIONS”-“Duisburg Test Case”-&quot;CAD data&quot;からダウンロードできる．ダウンロードしてzipファイルを解凍すると，以下の5つのIGESファイルが入手できる．</p>
+<ul>
+<li>DTC_Prop.igs</li>
+<li>DTC_bilge_keel.igs</li>
+<li>DTC_gap_hull_prop.igs</li>
+<li>DTC_hull.igs</li>
+<li>DTC_trimmed_rudder.igs</li>
+</ul>
+<p>上から順に，プロペラ，ビルジキール，船体-プロペラ間のギャップ，船体(船殻)，舵である．IGES形式なので，一般的なCADソフトや3DCGで読み込むことができる．例えば，FreeCADで全てのIGESファイルを読み込んで船尾を拡大したものをFig. 1に示す．</p>
+<center>
+<img src="/Users/takagi/Dropbox/DTC/fig/DTC_stern.png?v=1505294761602" width="400"><br>
+<p><strong>Fig. 1 Ship stern with rudder and propeller</strong></p>
+</center>
+<p>ここで描画したものは船体に付属するプロペラ，ビルジキール，舵を含んでいるが，抵抗試験では平水中を曳航(直進)するだけなので，<code>DTC_hull.igs</code>のみから船形状を定義し，計算格子を作成する．今回のチュートリアルケースでは<code>$FOAM_TUTORIALS/resources/geometry/DTC-scaled.stl.gz</code>に同じ形状のSTLファイルが用意されているので，これを用いて計算格子を作成する．</p>
+<p>設計荷重条件におけるモデルスケール，実船フルスケールでの主要目はTable 1に示すとおりである．</p>
+<center>
+<p><strong>Table 1 Main dimensions of DTC in design loading condition.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:center">Model</th>
+<th style="text-align:center">Full Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">L_{pp}</script></span> [m]</td>
+<td style="text-align:center">5.976</td>
+<td style="text-align:center">355.0</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">B_{wl}</script></span> [m]</td>
+<td style="text-align:center">0.859</td>
+<td style="text-align:center">51.0</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">T_m</script></span> [m]</td>
+<td style="text-align:center">0.244</td>
+<td style="text-align:center">14.5</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">\theta</script></span> [<span class="math"><script type="math/tex">^o</script></span>]</td>
+<td style="text-align:center">0.0</td>
+<td style="text-align:center">0.0</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">V</script></span> [m <span class="math"><script type="math/tex">^3</script></span>]</td>
+<td style="text-align:center">0.827</td>
+<td style="text-align:center">173467.0</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">C_B</script></span> [-]</td>
+<td style="text-align:center">0.661</td>
+<td style="text-align:center">0.661</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">S_W</script></span> [m <span class="math"><script type="math/tex">^2</script></span>]</td>
+<td style="text-align:center">6.243</td>
+<td style="text-align:center">22032.0</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math"><script type="math/tex">v_d</script></span> [knots]</td>
+<td style="text-align:center">3.244</td>
+<td style="text-align:center">25.0</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>ここで，<span class="math"><script type="math/tex">L_{pp}</script></span> は垂線間長さ(length between perpendiculars)，水線幅(water line breadth)，<span class="math"><script type="math/tex">T_m</script></span>は中央部喫水(draught midships)，<span class="math"><script type="math/tex">\theta</script></span>はトリム(trim angle)，<span class="math"><script type="math/tex">V</script></span>は排水容積(volume displacement)，<span class="math"><script type="math/tex">C_B</script></span>は方形肥痩係数(block coefficient)，<span class="math"><script type="math/tex">S_W</script></span>は付加物なしでの浸水表面積(wetted surface)，<span class="math"><script type="math/tex">v_d</script></span>は設計速度(design speed)である．垂線と長さの関係はFig. 2に示すとおりであり，<span class="math"><script type="math/tex">L_{pp}</script></span> が設計でよく使われる．</p>
+<center>
+<img src="/Users/takagi/Dropbox/DTC/fig/ship_size.png?v=1505294761627" width="500"><br>
+<p><strong>Fig. 2 Ship size and length. <a href="https://en.wikipedia.org/wiki/Length_between_perpendiculars">引用元:Wikipedia</a></strong></p>
+</center>
+<h3>抵抗試験</h3>
+<p>実船フルスケールでの船の長さと速度が与えられたので，船舶工学において重要な無次元数であるフルード数(Froude number)を求めてみる．<span class="math"><script type="math/tex">v_d</script></span> = 25 notsの場合，定義式より，</p>
+<span class="math"><script type="math/tex; mode=display">  Fr = \frac{v}{\sqrt{gL_{pp}}}=\frac{25\times 0.51444}{\sqrt{9.80665\times 355}}
+     = 0.218
+</script></span>
+<p>となる．抵抗試験ではフルードの相似則により，実船スケールと同じフルード数で模型船を曳航して造波抵抗係数を求めるので，実船速度が20 ~ 25 knotsの試験の場合，フルード数の定義式から模型船速度<span class="math"><script type="math/tex">v_M</script></span>を求めるとTable 2のようになる．</p>
+<center>
+<p><strong>Table 2 Ship velocities and Froude and Reynolds numbers.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><span class="math"><script type="math/tex">v</script></span> [knots]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">v_M</script></span> [m/s] [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">Fr</script></span> [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">Re\times 10^{-6}</script></span> [-]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">20.0</td>
+<td style="text-align:center">1.335</td>
+<td style="text-align:center">0.174</td>
+<td style="text-align:center">7.319</td>
+</tr>
+<tr>
+<td style="text-align:center">21.0</td>
+<td style="text-align:center">1.401</td>
+<td style="text-align:center">0.183</td>
+<td style="text-align:center">7.681</td>
+</tr>
+<tr>
+<td style="text-align:center">22.0</td>
+<td style="text-align:center">1.469</td>
+<td style="text-align:center">0.192</td>
+<td style="text-align:center">8.054</td>
+</tr>
+<tr>
+<td style="text-align:center">23.0</td>
+<td style="text-align:center">1.535</td>
+<td style="text-align:center">0.200</td>
+<td style="text-align:center">8.415</td>
+</tr>
+<tr>
+<td style="text-align:center">24.0</td>
+<td style="text-align:center">1.602</td>
+<td style="text-align:center">0.209</td>
+<td style="text-align:center">8.783</td>
+</tr>
+<tr>
+<td style="text-align:center">25.0</td>
+<td style="text-align:center">1.668</td>
+<td style="text-align:center">0.218</td>
+<td style="text-align:center">9.145</td>
+</tr>
+</tbody>
+</table>
+</center>
+<p>ここで，模型スケールでのレイノルズ数，</p>
+<span class="math"><script type="math/tex; mode=display">  Re = \frac{v_ML_{pp_M}}{\nu_M}
+</script></span>
+<p>も同時に示してある(水槽試験での水の動粘度は <span class="math"><script type="math/tex">\nu_M = 1.090\times 10^{-6}</script></span> m <span class="math"><script type="math/tex">^2</script></span>/s)．レイノルズ数もCFDにおいて重要なパラメータであるが，フルード数とともに実船と同じ値に設定することは無理であるため，レイノルズ数効果を検証したい場合は，試験結果との相関が取れたCFDを実船スケールに拡張して行う必要がある．</p>
+<p>水槽試験では模型船は水槽上の台車に取り付けられて設定された速度<span class="math"><script type="math/tex">v_M</script></span>で曳航され，模型船に働く力が分力計によって測定される．この船に働く全抵抗は，</p>
+<p>全抵抗 = 摩擦抵抗 + 形状抵抗 + 造波抵抗 + 空気抵抗 = 粘性抵抗 + 造波抵抗 + 空気抵抗</p>
+<p>に分けて考えることができる．平水中で行われる曳航試験では空気抵抗の寄与は無視できるので，</p>
+<p>全抵抗(水抵抗) = 摩擦抵抗 + 形状抵抗 + 造波抵抗 = 粘性抵抗 + 造波抵抗</p>
+<p>となる．形状抵抗と造波抵抗を併せて剰余抵抗と呼ぶことがあり，その場合は，</p>
+<p>全抵抗(水抵抗) = 摩擦抵抗 + 剰余抵抗</p>
+<p>となる．全抵抗を<span class="math"><script type="math/tex">R_T</script></span>[N]，摩擦抵抗を<span class="math"><script type="math/tex">R_F</script></span>[N]，造波抵抗を<span class="math"><script type="math/tex">R_W</script></span>とし，対応する全抵抗係数，摩擦抵抗係数，造波抵抗係数をそれぞれ<span class="math"><script type="math/tex">C_T</script></span>，<span class="math"><script type="math/tex">C_F</script></span>，<span class="math"><script type="math/tex">C_W</script></span>とすると，</p>
+<span class="math"><script type="math/tex; mode=display">  C_T = \frac{R_T}{\frac{1}{2}\rho S_W v^2} \\
+</script></span>
+<span class="math"><script type="math/tex; mode=display">  C_F = \frac{R_F}{\frac{1}{2}\rho S_W v^2} \\
+</script></span>
+<span class="math"><script type="math/tex; mode=display">  C_W = \frac{R_W}{\frac{1}{2}\rho S_W v^2} \\
+</script></span>
+<p>摩擦抵抗に関しては，船舶工学では浸水面積と等しい面積を持つ平板(相当平板)に働く摩擦抵抗から<span class="math"><script type="math/tex">C_F</script></span>を推定するのが基本的な考え方であり，<span class="math"><script type="math/tex">C_F</script></span>の推算式がいくつかある．今回の論文では，ITTC 1957の式，</p>
+<span class="math"><script type="math/tex; mode=display">  C_F = \frac{0.075}{(\log_{10}Re - 2.0)^2}
+</script></span>
+<p>を用いて<span class="math"><script type="math/tex">C_F</script></span>を算出している．実際の船形は三次元形状であるから，相当平板に対してのずれの割合を形状係数(shape factor) <span class="math"><script type="math/tex">K</script></span> とし，</p>
+<span class="math"><script type="math/tex; mode=display">  C_T = (1+K)C_F + C_W
+</script></span>
+<p>の関係になる．この<span class="math"><script type="math/tex">K</script></span>の推算方法も種々提案されているが，今回の論文では自由表面が存在しない二重模型流れ(double-body flow)のCFD計算から求めた<span class="math"><script type="math/tex">K = 0.094</script></span>を用いている．測定された<span class="math"><script type="math/tex">R_T</script></span>から<span class="math"><script type="math/tex">C_T</script></span>が計算され，<span class="math"><script type="math/tex">C_F</script></span>及び<span class="math"><script type="math/tex">K</script></span>が推算されたので，残りの造波抵抗係数は上式より，</p>
+<span class="math"><script type="math/tex; mode=display">  C_W = C_T - (1+K) C_F
+</script></span>
+<p>と求められる．このような一連の整理方法で模型船抵抗試験の結果をまとめたものがTable 3である．</p>
+<center>
+<p><strong>Table 3 Results of resistance model tests.</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"><span class="math"><script type="math/tex">v_M</script></span> [m/s] [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">Fr</script></span> [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">Re\times 10^{-6}</script></span> [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">R_T</script></span> [N]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">R_F</script></span> [N]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">C_T\times 10^3</script></span> [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">C_F\times 10^3</script></span> [-]</th>
+<th style="text-align:center"><span class="math"><script type="math/tex">C_W\times 10^4</script></span> [-]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1.335</td>
+<td style="text-align:center">0.174</td>
+<td style="text-align:center">7.319</td>
+<td style="text-align:center">20.34</td>
+<td style="text-align:center">17.611</td>
+<td style="text-align:center">3.661</td>
+<td style="text-align:center">3.170</td>
+<td style="text-align:center">1.932</td>
+</tr>
+<tr>
+<td style="text-align:center">1.401</td>
+<td style="text-align:center">0.183</td>
+<td style="text-align:center">7.681</td>
+<td style="text-align:center">22.06</td>
+<td style="text-align:center">19.229</td>
+<td style="text-align:center">3.605</td>
+<td style="text-align:center">3.142</td>
+<td style="text-align:center">1.672</td>
+</tr>
+<tr>
+<td style="text-align:center">1.469</td>
+<td style="text-align:center">0.192</td>
+<td style="text-align:center">8.054</td>
+<td style="text-align:center">24.14</td>
+<td style="text-align:center">20.964</td>
+<td style="text-align:center">3.588</td>
+<td style="text-align:center">3.116</td>
+<td style="text-align:center">1.791</td>
+</tr>
+<tr>
+<td style="text-align:center">1.535</td>
+<td style="text-align:center">0.200</td>
+<td style="text-align:center">8.415</td>
+<td style="text-align:center">26.46</td>
+<td style="text-align:center">22.713</td>
+<td style="text-align:center">3.602</td>
+<td style="text-align:center">3.092</td>
+<td style="text-align:center">2.194</td>
+</tr>
+<tr>
+<td style="text-align:center">1.602</td>
+<td style="text-align:center">0.209</td>
+<td style="text-align:center">8.783</td>
+<td style="text-align:center">28.99</td>
+<td style="text-align:center">24.554</td>
+<td style="text-align:center">3.623</td>
+<td style="text-align:center">3.069</td>
+<td style="text-align:center">2.660</td>
+</tr>
+<tr>
+<td style="text-align:center">1.668</td>
+<td style="text-align:center">0.218</td>
+<td style="text-align:center">9.145</td>
+<td style="text-align:center">31.83</td>
+<td style="text-align:center">26.431</td>
+<td style="text-align:center">3.670</td>
+<td style="text-align:center">3.047</td>
+<td style="text-align:center">3.360</td>
+</tr>
+</tbody>
+</table>
+</center>
+<h3>CFDによる各抵抗成分の算出</h3>
+<p>CFDによる解析結果から，上記の各抵抗成分及び抵抗係数の算出を考えてみる．通常の流体解析では速度と圧力を解くわけであるから，出力として船体表面での粘性摩擦抵抗<span class="math"><script type="math/tex">R_F</script></span>と圧力抵抗<span class="math"><script type="math/tex">R_P</script></span>が得られる．すなわち，</p>
+<span class="math"><script type="math/tex; mode=display">  R_T = R_F + R_P
+</script></span>
+<p>である．圧力抵抗は造波抵抗<span class="math"><script type="math/tex">R_W</script></span>と粘性圧力抵抗<span class="math"><script type="math/tex">R_{VP}</script></span> を含んでおり，すなわち，</p>
+<span class="math"><script type="math/tex; mode=display">  R_P = R_{VP} + R_W
+</script></span>
+<p>であるから，全抵抗はさらに</p>
+<span class="math"><script type="math/tex; mode=display">  R_T = R_F + R_{VP} + R_W
+</script></span>
+<p>と分けられる．粘性圧力抵抗は物体形状によって変わるものなので，相当平板の考え方を用いて摩擦抵抗に比例すると考えると，</p>
+<span class="math"><script type="math/tex; mode=display">  R_{VP} = KR_F
+</script></span>
+<p>とおくことができ，上式に代入すると，</p>
+<span class="math"><script type="math/tex; mode=display">  R_T = (1+K)R_F + R_W
+</script></span>
+<p>となる．自由表面がない二重模型流れでは造波がない，すなわち<span class="math"><script type="math/tex">R_W = 0</script></span>なので，二重模型流れの解析結果から，形状係数は</p>
+<span class="math"><script type="math/tex; mode=display">  1+K = \frac{R_T^{db}}{R_F^{db}}
+</script></span>
+<p>と求まる．この<span class="math"><script type="math/tex">1 + K</script></span>を自由表面付き流れの解析結果に用いて，<span class="math"><script type="math/tex">R_W</script></span>が</p>
+<span class="math"><script type="math/tex; mode=display">  R_W = R_T - (1+K)R_F
+</script></span>
+<p>と求まる．</p>
+<h3>自由表面付き流れの解析</h3>
+<p>もう一度OpenFOAMのチュートリアルケースの種類を確認してみる．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;tut</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;find&nbsp;</span><span class="support function builtin shell"><span>.</span></span><span>&nbsp;-name&nbsp;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&#39;</span></span><span>DTCHull*</span><span class="punctuation definition string end shell"><span>&#39;</span></span></span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>./multiphase/interDyMFoam/ras/DTCHull</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>./multiphase/interFoam/ras/DTCHull</span></span></span></div></pre>
+<p>OpenFOAMのチュートリアルは各ソルバーごとに分類されているが，<code>interFoam</code>と<code>interDyMFoam</code>それぞれにDTCHullチュートリアルがあることがわかる．<code>interDyMFoam</code>は物体の6自由度運動による移動格子計算が可能であるが，水槽試験との関連性では，</p>
+<ul>
+<li>interFoam: 姿勢固定(船体が一定の高さに固定されている)</li>
+<li>interDymFoam: 姿勢自由 (船体が上下に動ける)</li>
+</ul>
+<p>として捉えることができ，今回の論文の抵抗試験では後者の姿勢自由(free in trim and sinkage)条件で行なっているのでinterDymFoamで演習を進める．なお，上述したように<span class="math"><script type="math/tex">1+K</script></span>を求めるためには自由表面無しの二重模型流れ(計算ではfree-slip境界を設定する)が必要であるが，OpenFOAMの標準チュートリアルには該当ケースが用意されていない．</p>
+<h4>Allrunスクリプト</h4>
+<p>OpenFOAMでのCFDの解析手順を確認するために，格子生成からソルバー実行までは自動で行えるスクリプト<code>Allrun</code>の中身を確認してみる．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;run</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;</span><span class="support function builtin shell"><span>cd</span></span><span>&nbsp;DTCHull</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;less&nbsp;Allrun</span></span></div></pre>
+<p>(前半部分)</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#!/bin/sh</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>cd&nbsp;${0%/*}&nbsp;||&nbsp;exit&nbsp;1&nbsp;&nbsp;&nbsp;&nbsp;#&nbsp;Run&nbsp;from&nbsp;this&nbsp;directory</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#&nbsp;Source&nbsp;tutorial&nbsp;run&nbsp;functions</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>.&nbsp;$WM_PROJECT_DIR/bin/tools/RunFunctions</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#&nbsp;copy&nbsp;DTC&nbsp;hull&nbsp;surface&nbsp;from&nbsp;resources&nbsp;folder</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>cp&nbsp;$FOAM_TUTORIALS/resources/geometry/DTC-scaled.stl.gz&nbsp;constant/triSurface/</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runApplication&nbsp;surfaceFeatureExtract</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runApplication&nbsp;blockMesh</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>for&nbsp;i&nbsp;in&nbsp;1&nbsp;2&nbsp;3&nbsp;4&nbsp;5&nbsp;6</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>do</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>runApplication&nbsp;-s&nbsp;$i&nbsp;\</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>topoSet&nbsp;-dict&nbsp;system/topoSetDict.${i}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>runApplication&nbsp;-s&nbsp;$i&nbsp;\</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>refineMesh&nbsp;-dict&nbsp;system/refineMeshDict&nbsp;-overwrite</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>done</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runApplication&nbsp;snappyHexMesh&nbsp;-overwrite</span></span></span></div></pre>
+<p>スクリプトの前半部分では，模型船の形状データであるSTLファイルをコピーし，snappyHexMeshに必要となる特徴線の抽出(<code>surfaceFeatureExtract</code>)を実行した後，ベースメッシュの作成(<code>blockMesh</code>)，細分化が必要な領域の作成・メッシュ細分化を6つの領域に対して行い，<code>snappyHexMesh</code>で最終格子を作成している．<code>snappyHexMesh</code>は設定項目が多く品質が良い格子の作成にはノウハウが必要なので，その他の使い慣れたメッシャーがあれば別途作成したメッシュをインポートしてもよい．</p>
+<p>(後半部分)</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>rm&nbsp;-rf&nbsp;0</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>cp&nbsp;-r&nbsp;0.orig&nbsp;0</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runApplication&nbsp;setFields</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runApplication&nbsp;decomposePar</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runParallel&nbsp;renumberMesh&nbsp;-overwrite</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runParallel&nbsp;$(getApplication)</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>runApplication&nbsp;reconstructPar</span></span></span></div></pre>
+<p>後半部分では，<code>0.orig</code>をコピーして初期条件・境界条件が記述された<code>0</code>ディレクトリを作成し，<code>setFields</code>でVOF関数<code>alpha.water</code>の初期条件を設定して初期水位を与えた後，ソルバーを並列計算で実行するための一連のコマンド(<code>decomposePar</code>，<code>renumberMesh</code>，<code>$(getApplication)</code>(=<code>interDyMFoam</code>)，<code>reconstructPar</code>)を実行している．</p>
+<h4>格子生成</h4>
+<p>今回のDTCHullチュートリアルはソルバー本体の計算時間がかかるため，前半部分のメッシュの作成のみ実施してみる．<code>Allrun</code>スクリプトの前半をコピーして<code>Allrun.pre</code>とし実行してみる．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;cp&nbsp;Allrun&nbsp;Allrun.pre</span></span></div><div class="line"><span class="source shell"><span>$&nbsp;vi&nbsp;Allrun.pre&nbsp;</span><span class="comment line number-sign shell"><span class="punctuation definition comment shell"><span>#</span></span><span>&nbsp;前半部分のみを残して保存する</span></span></span></div><div class="line"><span class="source shell"><span>$&nbsp;./Allrun.pre&nbsp;</span><span class="keyword operator list shell"><span>&amp;</span></span></span></div></pre>
+<p><code>snappyHexMesh</code>まで実行が完了したら，ParaViewを使って船体形状，計算格子を確認してみる．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;paraFoam&nbsp;</span><span class="keyword operator list shell"><span>&amp;</span></span></span></div></pre>
+<p>ParaViewが起動したら，以下の手順で船体表面及び近傍の計算格子を表示する．</p>
+<ol>
+<li>&quot;Properties&quot;の&quot;Mesh Parts&quot;で，&quot;internalMesh&quot;をアンチェックし，&quot;hull - patch&quot;のみチェックする．</li>
+<li>&quot;Edit Axes Grid …&quot;の左側マスにチェックを入れる．</li>
+<li>&quot;Apply&quot;をクリックする．</li>
+<li>マウスで回転させて視点を変えてみる．</li>
+<li>&quot;Set view direction to +Y&quot;をクリックして視点を船側にする．原点位置(特に<span class="math"><script type="math/tex">x=0</script></span>，AP)を確認する．</li>
+<li>Coloringを&quot;Solid Color&quot;に変更し，表示方法を&quot;Surface With Edges&quot;に変更する．</li>
+<li>&quot;Mesh Parts&quot;で&quot;midPlane - patch&quot;にチェックを追加する．</li>
+<li>&quot;Apply&quot;をクリックする．船首・船尾付近を拡大して境界層メッシュを確認する．</li>
+<li>必要ならばスクリーンショット及びstateを保存する．</li>
+</ol>
+<center>
+<img src="/Users/takagi/Dropbox/DTC/fig/grid_hull.png?v=1505294761647" width="500"><br>
+<p><strong>Fig. 2 Computational grid around the hull.</strong></p>
+</center>
+<p>ParaViewで確認してわかるとおり，計算領域は<span class="math"><script type="math/tex">y>0</script></span>の領域のみ，すなわち片舷である．プロペラが付いていない抵抗試験の場合は流れが中心線に対して対象となるので片舷計算で良いが，プロペラがある自航試験ではプロペラによる流れが非対称になるので両舷計算が必要となる．</p>
+<h4>試験条件設定</h4>
+<p>まず喫水の設定であるが，水面高さはVOF関数<code>alpha.water</code>で初期条件として与えるので，<code>setFields</code>ユーティリティの設定ファイル<code>setFieldsDict</code>の中身を確認する．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;less&nbsp;./system/setFieldsDict</span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>regions</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;Set&nbsp;cell&nbsp;values</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;(does&nbsp;zerogradient&nbsp;on&nbsp;boundaries)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;boxToCell</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>box&nbsp;(-999&nbsp;-999&nbsp;-999)&nbsp;(999&nbsp;999&nbsp;0.244);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>fieldValues</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>volScalarFieldValue&nbsp;alpha.water&nbsp;1</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>//&nbsp;Set&nbsp;patch&nbsp;values&nbsp;(using&nbsp;==)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;boxToFace</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>box&nbsp;(-999&nbsp;-999&nbsp;-999)&nbsp;(999&nbsp;999&nbsp;0.244);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>fieldValues</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>volScalarFieldValue&nbsp;alpha.water&nbsp;1</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>);</span></span></span></div></pre>
+<p><code>box</code>で 対角頂点を指定しているが，0.244の<span class="math"><script type="math/tex">z</script></span>座標が喫水<span class="math"><script type="math/tex">T_m</script></span>に対応する．論文と同じ<span class="math"><script type="math/tex">T_m</script></span> = 0.244 mが設定されているので変更する必要がないが，バラスト状態を変化させた解析を行いたい場合はこの数値を変更する．</p>
+<p>次に模型船の速度を確認する．水槽試験は模型船を曳航するが，CFD解析では条件速度の一様流中に模型船を置くことになる．初期条件を与える<code>0.orig</code>ディクトリでの速度ファイル<code>U</code>を確認する．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;less&nbsp;0.orig/U</span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>Umean&nbsp;1.668;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>mUmean&nbsp;-1.668;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>dimensions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[0&nbsp;1&nbsp;-1&nbsp;0&nbsp;0&nbsp;0&nbsp;0];</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>internalField&nbsp;&nbsp;&nbsp;uniform&nbsp;($mUmean&nbsp;0&nbsp;0);</span></span></span></div></pre>
+<p><code>Umean</code>，<code>mUmean</code>に <span class="math"><script type="math/tex">\pm</script></span> 25 knots = <span class="math"><script type="math/tex">\pm</script></span> 1.668 m/sが設定されており，論文中での一番早い速度の条件が設定されていることがわかる．一様流の速度は<code>internalField</code>で与えられており，船首が <span class="math"><script type="math/tex">+x</script></span>方向を向いているので<code>mUmean = -1.668</code>で与えられている．</p>
+<p>最後に，6自由度運動の計算に関する設定を確認してみる．運動に伴う移動格子の設定は<code>dynamicMeshDict</code>に記述してある．</p>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>$&nbsp;less&nbsp;constant/dynamicMeshDict</span></span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>dynamicFvMesh&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dynamicMotionSolverFvMesh;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>motionSolverLibs&nbsp;&nbsp;&nbsp;(&quot;librigidBodyMeshMotion.so&quot;);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>solver&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rigidBodyMotion;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>rigidBodyMotionCoeffs</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>report&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;on;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>solver</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;Newmark;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>accelerationRelaxation&nbsp;0.4;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>bodies</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>hull</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rigidBody;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;parent&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;root;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>centreOfMass&nbsp;&nbsp;&nbsp;&nbsp;(0&nbsp;0&nbsp;0);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mass&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;412.73;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inertia&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(40&nbsp;0&nbsp;0&nbsp;921&nbsp;0&nbsp;921);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;transform&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(1&nbsp;0&nbsp;0&nbsp;0&nbsp;1&nbsp;0&nbsp;0&nbsp;0&nbsp;1)&nbsp;(2.929541&nbsp;0&nbsp;0.2);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>joint</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;&nbsp;&nbsp;&nbsp;composite;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;joints</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;Pz;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;Ry;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>);</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>patches&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(hull);</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;innerDistance&nbsp;&nbsp;&nbsp;0.3;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;outerDistance&nbsp;&nbsp;&nbsp;1;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;restraints</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>translationDamper</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;linearDamper;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body&nbsp;hull;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coeff&nbsp;8596;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;</span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>rotationDamper</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>type&nbsp;sphericalAngularDamper;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;body&nbsp;hull;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;coeff&nbsp;11586;</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span>&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="meta paragraph text"><span>}</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>}</span></span></span></div></pre>
+<p>6自由度運動は設定項目が多く，論文中の抵抗試験の記述では対応する各設定パラメータがわからないので正確に文献から設定値を見積もることは難しい．姿勢自由の抵抗試験なので，412.73 kgの模型船(片舷)が座標(2.929541 0 0.2)の浮体中心で<span class="math"><script type="math/tex">z</script></span>方向の並進移動(<code>type Pz</code>)，<span class="math"><script type="math/tex">y</script></span>軸まわりの回転(<code>type Ry</code>)のジョイントで支持されていることが読み取れる．バラスト状態を変化させた解析を行いたい場合は模型船重量と浮体中心の<span class="math"><script type="math/tex">z</script></span>座標を変更しなければならない．</p>
+<h4>数値スキームに関する設定</h4>
+<p>有限体積法のスキームに関する設定は<code>fvSchemes</code>，反復解法については<code>fvSolution</code>の設定を確認し，積分時間に関する設定は<code>controlDict</code>で変更しなければいけないが，これらの設定は適切な組み合わせで決定・検討しなければいけないのでここでの説明は省略する．</p>
+<h4>船速を変更させた解析の実行</h4>
+<p>水槽試験と同様にフルード数に対する抵抗・抵抗係数の依存性を検討するためには，Table 2またはTabl 3に示したように6つの船速で解析を実施する必要がある．オリジナルのチュートリアルケースは船速が一番早い条件<span class="math"><script type="math/tex">v_M</script></span> = 1.668 m/sであったので，格子解像度を変更する必要はなく，これをそのままコピーして<code>0.orig/U</code>を書き換えて計算を実行すればよい．6ケースだけなのでマニュアルでコピー・書き換えをしてもよいし，<code>run</code>ディレクトリ直下にシェルスクリプトを自作して，自動でパラメトリックに解析してもよい．</p>
+<h3>後処理・可視化</h3>
+<h4>抵抗値</h4>
+<p>計算を実行すると，<code>postProcessing</code>ディレクトリに抵抗値の時系列データが出力される．出力データの形式を確認する．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;head&nbsp;-n&nbsp;5&nbsp;postProcessing/forces/0/forces.dat</span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#&nbsp;Forces&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#&nbsp;CofR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;(2.929541e+00&nbsp;0.000000e+00&nbsp;2.000000e-01)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#&nbsp;Time&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;forces(pressure&nbsp;viscous&nbsp;porous)&nbsp;moment(pressure&nbsp;viscous&nbsp;porous)</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>0.000119996&nbsp;&nbsp;	((-6.853829e+04&nbsp;-1.643622e+04&nbsp;-1.065179e+05)&nbsp;(-4.047231e+00&nbsp;3.613940e-02&nbsp;5.087054e-02)&nbsp;(0.000000e+00&nbsp;0.000000e+00&nbsp;0.000000e+00))&nbsp;((1.831509e+04&nbsp;-7.818324e+05&nbsp;5.223282e+05)&nbsp;(-6.911911e-03&nbsp;4.939450e-01&nbsp;-1.140576e+00)&nbsp;(0.000000e+00&nbsp;0.000000e+00&nbsp;0.000000e+00))</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>0.000263989&nbsp;&nbsp;	((1.873179e+04&nbsp;2.989496e+04&nbsp;9.911197e+04)&nbsp;(-4.050683e+00&nbsp;5.994960e-03&nbsp;7.967362e-02)&nbsp;(0.000000e+00&nbsp;0.000000e+00&nbsp;0.000000e+00))&nbsp;((-1.661395e+04&nbsp;3.002590e+05&nbsp;-1.344637e+05)&nbsp;(-2.130212e-02&nbsp;8.207031e-01&nbsp;-1.094383e+00)&nbsp;(0.000000e+00&nbsp;0.000000e+00&nbsp;0.000000e+00))</span></span></span></div></pre>
+<p>ヘッダー部分(<code>#</code>)に書かれているとおり，力・モーメントの圧力・粘性・多孔体成分が(<span class="math"><script type="math/tex">x</script></span>成分 <span class="math"><script type="math/tex">y</script></span>成分 <span class="math"><script type="math/tex">z</script></span>成分)の組で出力されている．今回必要なのは力だけであり，さらにそのうちの圧力の<span class="math"><script type="math/tex">x</script></span>成分，粘性の<span class="math"><script type="math/tex">x</script></span>成分だけである．<code>awk</code>を用いて必要なデータのみを抜き出してみる．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;awk&nbsp;-F&nbsp;</span><span class="string quoted double shell"><span class="punctuation definition string begin shell"><span>&quot;</span></span><span>[(&nbsp;)]+</span><span class="punctuation definition string end shell"><span>&quot;</span></span></span><span>&nbsp;</span><span class="string quoted single shell"><span class="punctuation definition string begin shell"><span>&#39;</span></span><span>{print&nbsp;$1,&nbsp;-2*$3,&nbsp;-2*$6,&nbsp;2*(-$3-$6)}</span><span class="punctuation definition string end shell"><span>&#39;</span></span></span><span>&nbsp;postProcessing/forces/0/forces.dat&nbsp;</span><span class="keyword operator redirect shell"><span>&gt;</span></span><span>&nbsp;forces_hull.dat</span></span></div></pre>
+<p>ヘッダー部分を修正しておく．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;vi&nbsp;forces_hull.dat</span></span></div></pre>
+<pre class="editor-colors lang-text"><div class="line"><span class="text plain"><span class="meta paragraph text"><span>#&nbsp;Time&nbsp;Pressure&nbsp;Viscous&nbsp;Total</span></span></span></div><div class="line"><span class="text plain"><span class="meta paragraph text"><span>0.000119996&nbsp;137077&nbsp;8.09446&nbsp;137085</span></span></span></div></pre>
+<p>gnuplotで抵抗値が落ち着いているかどうかを確認する．</p>
+<pre class="editor-colors lang-bash"><div class="line"><span class="source shell"><span>$&nbsp;gnuplot</span></span></div></pre>
+<pre class="editor-colors lang-gnuplot"><div class="line"><span class="text plain null-grammar"><span>gnuplot&gt;&nbsp;set&nbsp;yrange&nbsp;[0:50]</span></span></div><div class="line"><span class="text plain null-grammar"><span>gnuplot&gt;&nbsp;plot&nbsp;&#39;forces_hull.dat&#39;&nbsp;usi&nbsp;1:2&nbsp;ti&nbsp;&#39;pressure&#39;,&nbsp;&#39;forces_hull.dat&#39;&nbsp;usi&nbsp;1:3&nbsp;ti&nbsp;&#39;viscous&#39;,&nbsp;&#39;forces_hull.dat&#39;&nbsp;usi&nbsp;1:4&nbsp;ti&nbsp;&#39;total&#39;</span></span></div></pre>
+<p>一定値になっていることが確認できたので，はじめの時刻データは除いて統計量(平均値)を確認する．</p>
+<pre class="editor-colors lang-gnuplot"><div class="line"><span class="text plain null-grammar"><span>gnuplot&gt;&nbsp;set&nbsp;xrange&nbsp;[120:200]</span></span></div><div class="line"><span class="text plain null-grammar"><span>gnuplot&gt;&nbsp;stats&nbsp;&#39;forces_hull.dat&#39;&nbsp;usi&nbsp;1:4</span></span></div><div class="line"><span class="text plain null-grammar"><span>*&nbsp;FILE:</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Records:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8017</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Out&nbsp;of&nbsp;range:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;12055</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Invalid:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Column&nbsp;headers:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Blank:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Data&nbsp;Blocks:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>*&nbsp;COLUMNS:</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Mean:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.9126</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Std&nbsp;Dev:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.0969&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0273</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Sample&nbsp;StdDev:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;23.0983&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0273</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Skewness:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.06085e-14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-0.0166</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Kurtosis:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.8000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.0630</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Avg&nbsp;Dev:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;20.0025&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0218</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Sum:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.28272e+06&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;247826.0745</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Sum&nbsp;Sq.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.09512e+08&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7.66095e+06</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Mean&nbsp;Err.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.2580&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0003</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Std&nbsp;Dev&nbsp;Err.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.1824&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0002</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Skewness&nbsp;Err.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0274&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0274</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Kurtosis&nbsp;Err.:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0547&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;0.0547</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Minimum:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;120.0000&nbsp;[&nbsp;&nbsp;&nbsp;0]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.8163&nbsp;[&nbsp;139]</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Maximum:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;200.0000&nbsp;[8016]&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;31.0191&nbsp;[3894]</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Quartile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.8942</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Median:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;160.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.9130</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Quartile:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;180.0000&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.9306</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Linear&nbsp;Model:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y&nbsp;=&nbsp;-6.275e-06&nbsp;x&nbsp;+&nbsp;30.91</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Slope:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-6.275e-06&nbsp;+-&nbsp;1.321e-05</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Intercept:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;30.91&nbsp;+-&nbsp;0.002136</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Correlation:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;r&nbsp;=&nbsp;-0.005305</span></span></div><div class="line"><span class="text plain null-grammar"><span>&nbsp;&nbsp;Sum&nbsp;xy:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.965e+07</span></span></div></pre>
+<p>平均値が30.91 Nであり，実験値31.83 Nより若干低いが解析結果は妥当であることがわかる．船速を変えたその他の5ケースについても同様に抵抗値を求め，フルード数に対する相関をプロットする．抵抗値に関してはこのようにすぐに整理可能であるが，抵抗係数に関しては浸水面積が初期条件と計算最終ステップでは造波によって異なるため，船体表面の浸水部分を積分する必要がある．OpenFOAMの後処理の標準ユーティリティでは浸水表面積を簡易に計算できないため，以降に述べるParaViewを用いた可視化において浸水面積を求める．</p>
+<h4>ParaViewを用いた可視化</h4>
+<p>執筆中．</p>
+<h2>コピーライト</h2>
+<p>本ドキュメントは，クリエイティブ・コモンズ 表示 -非営利 4.0 国際 ライセンスの下に提供されています．</p>
+<p><a href="http://creativecommons.org/licenses/by/4.0/deed.en_US"><img src="https://licensebuttons.net/l/by-nc/4.0/88x31.png" alt="Creative Commons License"></a>
+This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/deed.en_US">Creative Commons Attribution-NonCommercial 4.0 International License</a>.</p></body>
+</html>
