@@ -253,7 +253,7 @@ $$
   C_F = \frac{0.075}{(\log_{10}Re - 2.0)^2}
 $$
 
-を用いて$C_F$を算出している．実際の船形は三次元形状であるから，相当平板に対してのずれの割合を形状係数(shape factor) $K$ とし，
+を用いて$C_F$を算出している．実際の船形は三次元形状であるから，相当平板に対してのずれの割合を形状係数(form factor) $K$ とし，
 
 $$
   C_T = (1+K)C_F + C_W
@@ -312,18 +312,10 @@ $$
   R_T = (1+K)R_F + R_W
 $$
 
-となる．自由表面がない二重模型流れでは造波がない，すなわち$R_W = 0$なので，二重模型流れの解析結果から，形状係数は
-
+となる．通常，水槽試験との相関を考えて，平板での摩擦抵抗係数を$C_{f0}$とすると，$1+K$は，
 $$
-  1+K = \frac{R_T^{db}}{R_F^{db}}
+  1+K = \frac{C_T}{C_{f0}}
 $$
-
-と求まる．この$1 + K$を自由表面付き流れの解析結果に用いて，$R_W$が
-
-$$
-  R_W = R_T - (1+K)R_F
-$$
-
 と求まる．
 
 ###　自由表面付き流れの解析
@@ -344,7 +336,7 @@ OpenFOAMのチュートリアルは各ソルバーごとに分類されている
 * interFoam: 姿勢固定(船体が一定の高さに固定されている)
 * interDymFoam: 姿勢自由 (船体が上下に動ける)
 
-として捉えることができ，今回の論文の抵抗試験では後者の姿勢自由(free in trim and sinkage)条件で行なっているのでinterDymFoamで演習を進める．なお，上述したように$1+K$を求めるためには自由表面無しの二重模型流れ(計算ではfree-slip境界を設定する)が必要であるが，OpenFOAMの標準チュートリアルには該当ケースが用意されていない．
+として捉えることができ，今回の論文の抵抗試験では後者の姿勢自由(free in trim and sinkage)条件で行なっているのでinterDymFoamで演習を進める．なお，$1+K$を求めるためには造波がない平板周り流れの解析が必要であるが，OpenFOAMの標準チュートリアルには該当ケースが用意されていない．
 
 #### Allrunスクリプト
 
@@ -650,12 +642,67 @@ gnuplot> stats 'forces_hull.dat' usi 1:4
   Correlation:        r = -0.005305
   Sum xy:             3.965e+07
 ```
-平均値が30.91 Nであり，実験値31.83 Nより若干低いが解析結果は妥当であることがわかる．船速を変えたその他の5ケースについても同様に抵抗値を求め，フルード数に対する相関をプロットする．抵抗値に関してはこのようにすぐに整理可能であるが，抵抗係数に関しては浸水面積が初期条件と計算最終ステップでは造波によって異なるため，船体表面の浸水部分を積分する必要がある．OpenFOAMの後処理の標準ユーティリティでは浸水表面積を簡易に計算できないため，以降に述べるParaViewを用いた可視化において浸水面積を求める．
+平均値が30.91 Nであり，実験値31.83 Nより若干低いが解析結果は妥当であることがわかる．船速を変えたその他の5ケースについても同様に抵抗値を求め，フルード数に対する相関をプロットする．抵抗値に関してはこのようにすぐに整理可能である．
+抵抗係数は浸水面積で除する必要があるが，浸水面積は相当平板に対応させた浸水面積であり，すなわち，船体を$x$方向にいくつかのセクションに分けて，
+$$
+  S_W = \int\int dl dx, dl = (dy)^2+(dz)^2
+$$
+として積分する．これは船体の形状データが与えらればシンプソン則などで積分可能であるが，通常あらかじめ静水中のバラスト状態での値が与えられているのでそれをそのまま用いる．
 
 #### ParaViewを用いた可視化
 
-執筆中．
+**船体表面積の計算**
 
+水中に浸かっている領域ではVOF関数`alpha.water`が0ではない値
+を持っているので，これを利用してParaViewの機能により，フィールドデータ出力時での水に浸かっている船体表面積($\ne$浸水面積)を求める．まずParaViewを起動する．
+
+```bash
+$ paraFoam &
+```
+
+以下の手順によって船体表面積を求める．
+
+1. "Properties"-"MeshParts"において"internalMesh"をあんチェックし，"hull - patch"のみをチェックする．"Volume Fields"において"alpha.water"をチェックする．"Apply"をクリックして船体を表示する．
+2. "Set view direction to +Y"をクリックして視点を変える．
+3. "Filters"-"Alphabetical"-"Threshold"を選択する．
+4. "Properties"-"Schalars"が"alpha.water"であることを確認し，"Minimum"を"0.01"に設定する．"Apply"をクリックして反映させる．
+5. "Filters"-"Data Analysis"-"Integrate Variables"を選択する．"Apply"をクリックして"SpreadSheetView1"を表示させる．
+6. "SpreadSheetView1"において，"Attribute"を"Cell Data"に変更する．
+7. Time: 0(初期条件)において，"Area"が3.12966になっており，水中に浸かっている面積である．可視化しているのは片舷であるから，$3.13\times 2 = 6.26$ m $^2$ が両舷での面積である．
+8. 計算最終時刻での面積を確認するためには，"Last Frame (200)"をクリックする．
+9. フィールドデータが細かい時間間隔で出力されていて時間変化を確認したい場合は，"SpreadSheetView1"において時間変化が見たいデータがアクティブになっていることを確認し，"Filters"-"Data Analysis"-"Plot Selection Over Time"をクリックして"QuartileChartView1"を表示させる．"Properties"-"Series Parameters"において，"Area (Cell statistics)"のみにチェックを入れる．必要があれば，"File"-"Save Data..."でCSV形式でデータを保存する．
+10. "File"-"Save State..."で状態を保存し，ParaViewを終了する．
+
+ここで求めた面積6.26 m $^2$は論文中での浸水面積6.24 m $^2$とは異なっていることがわかる．
+
+**船側波形**
+
+船首・船尾における造波は船舶工学において重要な流体現象であり，船体表面における浸水高さ，すなわち船側波形の可視化を行ってみる．VOF法を用いているので気液界面を厳密に決定できないが，`alpha.water`=0.5の等高線を用いて可視化できる．ParaViewを起動し，以下の手順で可視化を行う．
+
+1. "Properties"-"MeshParts"において"internalMesh"をアンチェックし，"hull - patch"のみをチェックする．"Volume Fields"において"alpha.water"をチェックする．"Apply"をクリックして船体を表示する．
+2. "Set view direction to +Y"をクリックして視点を変える．
+3. "Filters"-"Common"-"Contour"を選択する．"Properties"において，"Isosurfaces"が"0.5"のみであることを確認し，"Apply"をクリックする．
+4. "Last Frame (200)"をクリックして最終時刻のデータを表示する．船体表面も表示させたい場合は，"Pipeline Browser"で元の読み込みデータをvisible(目のアイコンをチェック)にする．
+5. "Filters"-"Data Analysis"-"Plot On Sorted Lines"を選択し，"Properties"において，"X Axis Parameters"-"X Array Name"を"Point X"にし，"Series Parameters"-"Variable"を"Point Z"のみをチェックする．必要があれば，"File"-"Save Data..."でCSV形式でデータを保存する．
+6. "File"-"Save State..."で状態を保存し，ParaViewを終了する．
+
+**自由表面波形**
+
+船が曳航する際に発生する引き波を可視化するために，船体上部からみた水面高さを等高線によって描画する．ParaViewを起動し，以下の程順で可視化を行う．
+
+1. "Properties"-"Volume Fields"において"alpha.water"をチェックする．"Apply"をクリックして計算領域全体を表示する．
+2. "Filters"-"Common"-"Contour"を選択する．"Properties"において，"Isosurfaces"が"0.5"のみであることを確認し，"Apply"をクリックする．
+3. "Set view direction to -Z"をクリックし，視点を変える．"Zoon to Box"をクリックしてマウスをドラッグし，船体付近を拡大表示する．
+4. "Filters"-"Common"-"Scalars"を選択する．"Properties"において，"scalars"-"coordsZ"を選択する．"Apply"をクリックして反映させる．
+5. "Rescale to Custom Data Range"をクリックし，出てきたダイアログにおいて，"Minimum"を"0.22"，"Maximum"を"0.28"と入力し，"Rescale"をクリックして反映させる．
+6. "Edit Color Map"をクリックし，現れた"Color Map Editor"において，"Color Discretization"-"Number of Table Values"を"16"に変更する．
+7. 実線の等高線も重ねて描画したい場合は，"Filters"-"Common"-"Contour"を選択し，"Properties"に置いて"Isosurfaces"のValueを全てクリアした後，"Add a range of values"をクリックして現れたダイアログに，"From"に"0.22"，"To"に"0.28"，"Steps"に17を入力して"OK"をクリックする．ここで入力した値は一つめのContourフィルターに合わせる．カラーコンター図がinvisibleになるので，"Pipeline Browser"で必要なフィルターをvisibleに戻す．新しく描画した等高線のカラーを変更したい場合は，表示を"Solid Color"に変更し，"Properties"の"Coloring"-"Edit"をクリックし，"Pick Solid Color"パレットで"Basic colors"で好きな色に変更する(通常はblackが多い)．
+8. 必要ならば"File"-"Save Screenshot..."で静止画像を保存する．
+9. "File"-"Save State..."で状態を保存し，ParaViewを終了する．
+
+## まとめ
+
+今回の演習では，OpenFOAMのDTCHullチュートリアルを対象として，船舶CFDにおける抵抗試験解析を概説した．CFDそのものは基本的な自由表面流れの解析であるが，水槽試験に対応した条件設定が多くあるため，一つ一つを十分に理解して値を設定する必要がある．また，生のCFD解析結果からの各種抵抗係数の整理にも十分な注意・確認を行う必要がある．また，今回の演習では触れなかったが，可視化や統計量において不自然な振動などの傾向が見られた場合は，格子解像度・格子品質の見直しや計算スキーム設定の検証が必要となる．
 
 ## コピーライト
 
