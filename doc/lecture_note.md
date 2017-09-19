@@ -312,7 +312,7 @@ $$
   R_T = (1+K)R_F + R_W
 $$
 
-となる．通常，水槽試験との相関を考えて，平板での摩擦抵抗係数を$C_{f0}$とすると，$1+K$は，
+となる．通常，水槽試験との相関を考えて，平板での摩擦抵抗係数を$C_{f0}$ とすると，$1+K$は，
 $$
   1+K = \frac{C_T}{C_{f0}}
 $$
@@ -662,7 +662,7 @@ $ paraFoam &
 
 以下の手順によって船体表面積を求める．
 
-1. "Properties"-"MeshParts"において"internalMesh"をあんチェックし，"hull - patch"のみをチェックする．"Volume Fields"において"alpha.water"をチェックする．"Apply"をクリックして船体を表示する．
+1. "Properties"-"MeshParts"において"internalMesh"をアンチェックし，"hull - patch"のみをチェックする．"Volume Fields"において"alpha.water"をチェックする．"Apply"をクリックして船体を表示する．
 2. "Set view direction to +Y"をクリックして視点を変える．
 3. "Filters"-"Alphabetical"-"Threshold"を選択する．
 4. "Properties"-"Schalars"が"alpha.water"であることを確認し，"Minimum"を"0.01"に設定する．"Apply"をクリックして反映させる．
